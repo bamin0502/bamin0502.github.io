@@ -1,0 +1,1 @@
+# bamin0502.github.io
