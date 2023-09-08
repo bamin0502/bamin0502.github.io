@@ -157,4 +157,5 @@ select{
     font-weight: 400;
     font-family: 'Noto Sans KR', sans-serif;
 }
+.hidden {height:100%; min-height:100%; overflow:hidden !important; touch-action:none;}
 }
