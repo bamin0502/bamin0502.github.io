@@ -2,6 +2,7 @@
 
 html{
     height: 100%;
+    margin:center;
 }
 body{
     margin: 0;
@@ -157,20 +158,4 @@ select{
     font-weight: 400;
     font-family: 'Noto Sans KR', sans-serif;
 }
-@media screen and (max-width: 768px){
-    .boby{
-        height:150%;
-    }
-    .html{
-        height:150%;
-    }
-    #wrapper{
-        
-    }
-    #logo{
 
-    }
-    #header{
-        
-    }
-}
