@@ -214,3 +214,7 @@ function checkPhoneNum() {
         error[7].style.display = "none";
     }    
 }
+
+function scrollDisable(){
+    $('html, body').addClass('hidden');
+}
