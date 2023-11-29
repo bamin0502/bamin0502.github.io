@@ -27,7 +27,7 @@ if (pw2) {
     pw2.addEventListener("focusout", comparePw);
     pw2.addEventListener("input",function(){
         hidePasswordInput(pw2);
-        checkPw();
+        comparePw();
     })
 }
 userName.addEventListener("focusout", checkName);
