@@ -13,7 +13,6 @@ const error = document.querySelectorAll('.error_next_box');
 
 
 /*이벤트 핸들러 연결*/
-
 let isPasswordConfirmed=false;
 
 if (id) {
