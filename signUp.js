@@ -68,7 +68,8 @@ function checkPw() {
         error[1].innerHTML = "필수 정보입니다.";
         error[1].style.display = "block";
         pwMsg.style.display = "none";
-        pwImg1.src = "";
+        pwImg1.src = "image/icon_pass.svg";
+        togglePasswordConfirmation(false);
     } else if(!pwPattern.test(pw1.value)) {
         error[1].innerHTML = "8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.";
         pwMsg.innerHTML = "사용불가";
@@ -77,6 +78,7 @@ function checkPw() {
         pwMsg.style.display = "block";
         pwMsg.style.color = "Red";
         pwImg1.src = "image/unsafe.png";
+        togglePasswordConfirmation(false);
     } else {
         error[1].style.display = "none";
         pwMsg.innerHTML = "안전";
@@ -89,6 +91,7 @@ function checkPw() {
             pwMsg.style.color = "#03c75a";
             pwImg1.src = "image/safe.png";
         }
+        togglePasswordConfirmation(true);
     }
 }
 
@@ -105,7 +108,7 @@ function comparePw() {
         error[2].style.display = "block";
     } else {
         // 비밀번호가 비어있을 때 초기화
-        pwImg2.src = "";
+        pwImg2.src = "image/icon_check_disable.png";
         error[2].innerHTML = "";
         error[2].style.display = "none";
     }
@@ -130,7 +133,7 @@ function checkName() {
         error[3].innerHTML = "필수 정보입니다.";
         error[3].style.display = "block";
     } else if(!namePattern.test(userName.value) || userName.value.indexOf(" ") > -1) {
-        error[3].innerHTML = "한글을 사용해주세요. (특수기호, 공백 사용 불가)";
+        error[3].innerHTML = "한글을 사용해주세요.(특수기호, 공백 사용 불가)";
         error[3].style.display = "block";
     } else {
         error[3].style.display = "none";
