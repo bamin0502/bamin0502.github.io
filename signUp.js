@@ -116,11 +116,11 @@ function comparePw() {
     }
 }
 function togglePasswordConfirmation(){
-    //비밀번호 확인 필드 활성화 여부 체크
-    if(isPasswordConfirmed){
+     // 비밀번호 확인 필드 활성화 여부 체크
+    if(isPasswordConfirmed && pw1.value.trim() !== "") {
         pw2.removeAttribute("disabled");   
-    }else{
-        pw2.setAttribute("disabled","true");
+    } else {
+        pw2.setAttribute("disabled", "true");
     }
 }
 
