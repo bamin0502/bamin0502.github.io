@@ -80,16 +80,21 @@ function checkPw() {
 }
 
 function comparePw() {
-    if(pw2.value === pw1.value && pw2.value !== "") {
+    if (pw2.value === pw1.value && pw2.value !== "") {
         pwImg2.src = "image/safe.png";
         error[2].style.display = "none";
-    } else if(pw2.value !== pw1.value) {
+    } else if (pw2.value !== pw1.value && pw2.value !== "") {
         pwImg2.src = "image/unsafe.png";
         error[2].innerHTML = "비밀번호가 일치하지 않습니다.";
         error[2].style.display = "block";
-    } 
+    } else {
+        // 비밀번호가 비어있을 때 초기화
+        pwImg2.src = "";
+        error[2].innerHTML = "";
+        error[2].style.display = "none";
+    }
 
-    if(pw2.value === "") {
+    if (pw2.value === "") {
         error[2].innerHTML = "필수 정보입니다.";
         error[2].style.display = "block";
     }
