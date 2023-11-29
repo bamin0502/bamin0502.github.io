@@ -121,7 +121,7 @@ function togglePasswordConfirmation(){
     if(isPasswordConfirmed){
         pw2.removeAttribute("disabled");   
     }else{
-        pw2.setAttribute("disabled,true);
+        pw2.setAttribute("disabled","true");
     }
 }
 
