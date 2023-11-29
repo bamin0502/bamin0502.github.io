@@ -67,8 +67,8 @@ function checkPw() {
         pwMsg.innerHTML = "사용불가";
         pwMsgArea.style.paddingRight = "93px";
         error[1].style.display = "block";
-        pwMsg.style.color="#B3261E";
         pwMsg.style.display = "block";
+        pwMsg.style.color = "Red";
         pwImg1.src = "image/unsafe.png";
     } else {
         error[1].style.display = "none";
