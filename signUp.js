@@ -60,6 +60,8 @@ function checkPw() {
     if(pw1.value === "") {
         error[1].innerHTML = "필수 정보입니다.";
         error[1].style.display = "block";
+        pwMsg.style.display = "none";
+        pwImg1.src = "";
     } else if(!pwPattern.test(pw1.value)) {
         error[1].innerHTML = "8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.";
         pwMsg.innerHTML = "사용불가";
@@ -74,12 +76,21 @@ function checkPw() {
         pwMsg.style.display = "block";
         pwMsg.style.color = "#03c75a";
         pwImg1.src = "image/safe.png";
+
+        // 추가된 부분: 비밀번호 길이에 따라 색상 변경
+        if (pw1.value.length <= 8) {
+            pwMsg.style.color = "Red";
+            pwImg1.src = "image/unsafe.png";
+        } else {
+            pwMsg.style.color = "#03c75a";
+            pwImg1.src = "image/safe.png";
+        }
     }
 }
 
 function comparePw() {
-    const pw2Value=pw2Value = pw2.value.trim();
-    
+    const pw2Value = pw2.value.trim();
+
     if (pw2Value === pw1.value && pw2Value !== "") {
         pwImg2.src = "image/safe.png";
         error[2].style.display = "none";
