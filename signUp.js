@@ -80,10 +80,12 @@ function checkPw() {
 }
 
 function comparePw() {
-    if (pw2.value === pw1.value && pw2.value !== "") {
+    const pw2Value=pw2Value = pw2.value.trim();
+    
+    if (pw2Value === pw1.value && pw2Value !== "") {
         pwImg2.src = "image/safe.png";
         error[2].style.display = "none";
-    } else if (pw2.value !== pw1.value && pw2.value !== "") {
+    } else if (pw2Value !== pw1.value && pw2Value !== "") {
         pwImg2.src = "image/unsafe.png";
         error[2].innerHTML = "비밀번호가 일치하지 않습니다.";
         error[2].style.display = "block";
@@ -94,15 +96,12 @@ function comparePw() {
         error[2].style.display = "none";
     }
 
-    if (pw2.value === "") {
+    if (pw2Value === "") {
         error[2].innerHTML = "필수 정보입니다.";
         error[2].style.display = "block";
     }
 }
 
-function hidePasswordInput(inputElement) {
-    inputElement.value = Array(inputElement.value.length + 1).join('*');
-}
 function checkName() {
     const namePattern = /[가-힣]/;
     if(userName.value === "") {
