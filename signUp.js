@@ -89,7 +89,7 @@ function checkPw() {
 }
 
 function comparePw() {
-    // 오류 수정: 비밀번호 확인 시 초기화되는 변수 선언
+     // 수정된 부분: 중복 선언 제거
     const pw2Value = pw2.value.trim();
 
     if (pw2Value === pw1.value && pw2Value !== "") {
