@@ -89,26 +89,6 @@ input{
     cursor:pointer;
     pointer-events: none;
 }
-#birthday_wrap{
-    display:table;
-    width:100%;
-}
-#birthday_yy{
-    display:table-cell;
-    width:147px;
-}
-#birthday_mm{
-    display:table-cell;
-    width:147px;
-    vertical-align: middle;
-}
-#birthday_dd{
-    display:table-cell;
-    width:147px;
-}
-#birthday_mm,#birthday_dd{
-    padding-left:10px;
-}
 
 select{
     width:100%;
