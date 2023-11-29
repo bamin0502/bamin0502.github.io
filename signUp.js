@@ -35,6 +35,12 @@ if (pw2) {
         isPasswordConfirmed=pw2.value.trim()===pw1.value.trim();
         togglePasswordConfirmation();
     })
+    pw2.addEventListener("click", function() {
+        if (pw2.hasAttribute("disabled")) {
+            error[2].innerHTML = "먼저 비밀번호를 입력해주세요.";
+            error[2].style.display = "block";
+        }
+    });
 }
 userName.addEventListener("focusout", checkName);
 email.addEventListener("focusout", isEmailCorrect);
@@ -118,10 +124,10 @@ function comparePw() {
         error[2].style.display = "block";
     }
 }
-function togglePasswordConfirmation(){
+function togglePasswordConfirmation(isEnabled){
      // 비밀번호 확인 필드 활성화 여부 체크
-    if(isPasswordConfirmed && pw1.value.trim() !== "") {
-        pw2.removeAttribute("disabled");   
+    if(isEnabled) {
+        pw2.removeAttribute("disabled");
     } else {
         pw2.setAttribute("disabled", "true");
     }
