@@ -13,6 +13,9 @@ const error = document.querySelectorAll('.error_next_box');
 
 
 /*이벤트 핸들러 연결*/
+
+let isPasswordConfirmed=false;
+
 if (id) {
     id.addEventListener("focusout", checkId);
 }
@@ -20,16 +23,22 @@ if (pw1) {
     pw1.addEventListener("focusout", checkPw);
     pw1.addEventListener("input",function(){
         checkPw();
+
+        //비밀번호 상태에 따라서 비밀번호 확인 상태를 초기화 시킴
+        isPasswordConfirmed=false;
+        togglePasswordConfirmation();
     })
 }
 if (pw2) {
     pw2.addEventListener("focusout", comparePw);
     pw2.addEventListener("input",function(){
         comparePw();
+        //비밀번호 확인이 변경될때 마다 비밀번호 확인 상태를 업데이트
+        isPasswordConfirmed=pw2.value.trim()===pw1.value.trim();
+        togglePasswordConfirmation();
     })
 }
 userName.addEventListener("focusout", checkName);
-
 email.addEventListener("focusout", isEmailCorrect);
 mobile.addEventListener("focusout", checkPhoneNum);
 
@@ -110,6 +119,16 @@ function comparePw() {
         error[2].innerHTML = "필수 정보입니다.";
         error[2].style.display = "block";
     }
+}
+function togglePasswordConfirmation(){
+    //비밀번호 확인 필드 활성화 여부 체크
+    if(isPasswordConfirmed){
+        pw2.removeAttribute("disabled");
+        
+    }else{
+        pw2.setAttribute("disabled,true);
+    }
+    
 }
 
 function checkName() {
