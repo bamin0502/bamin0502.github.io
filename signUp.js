@@ -19,14 +19,12 @@ if (id) {
 if (pw1) {
     pw1.addEventListener("focusout", checkPw);
     pw1.addEventListener("input",function(){
-        hidePasswordInput(pw1);
         checkPw();
     })
 }
 if (pw2) {
     pw2.addEventListener("focusout", comparePw);
     pw2.addEventListener("input",function(){
-        hidePasswordInput(pw2);
         comparePw();
     })
 }
