@@ -23,7 +23,6 @@ if (pw1) {
     pw1.addEventListener("focusout", checkPw);
     pw1.addEventListener("input",function(){
         checkPw();
-
         //비밀번호 상태에 따라서 비밀번호 확인 상태를 초기화 시킴
         isPasswordConfirmed=false;
         togglePasswordConfirmation();
@@ -83,10 +82,7 @@ function checkPw() {
         error[1].style.display = "none";
         pwMsg.innerHTML = "안전";
         pwMsg.style.display = "block";
-        pwMsg.style.color = "#03c75a";
-        pwImg1.src = "image/safe.png";
-
-        // 추가된 부분: 비밀번호 길이에 따라 색상 변경
+        // 변경된 부분: 비밀번호 길이에 따라 색상 변경
         if (pw1.value.length <= 8) {
             pwMsg.style.color = "Red";
             pwImg1.src = "image/unsafe.png";
@@ -123,12 +119,10 @@ function comparePw() {
 function togglePasswordConfirmation(){
     //비밀번호 확인 필드 활성화 여부 체크
     if(isPasswordConfirmed){
-        pw2.removeAttribute("disabled");
-        
+        pw2.removeAttribute("disabled");   
     }else{
         pw2.setAttribute("disabled,true);
     }
-    
 }
 
 function checkName() {
