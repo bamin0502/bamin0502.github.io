@@ -83,7 +83,7 @@ function checkPw() {
         pwMsg.innerHTML = "안전";
         pwMsg.style.display = "block";
         // 변경된 부분: 비밀번호 길이에 따라 색상 변경
-        if (pw1.value.length < 8) {
+        if (pw1.value.length <= 7) {
             pwMsg.style.color = "Red";
             pwImg1.src = "image/unsafe.png";
         } else {
