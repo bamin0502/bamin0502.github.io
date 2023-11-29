@@ -117,11 +117,11 @@ function isEmailCorrect() {
     const emailPattern = /[a-z0-9]{2,}@[a-z0-9-]{2,}\.[a-z0-9]{2,}/;
 
     if(email.value === ""){ 
-        error[6].style.display = "none"; 
+        error[4].style.display = "none"; 
     } else if(!emailPattern.test(email.value)) {
-        error[6].style.display = "block";
+        error[4].style.display = "block";
     } else {
-        error[6].style.display = "none"; 
+        error[4].style.display = "none"; 
     }
 
 }
@@ -130,13 +130,13 @@ function checkPhoneNum() {
     const isPhoneNum = /([01]{2})([0]{1})([0-9]{4})([0-9]{4})/;
 
     if(mobile.value === "tel") {
-        error[7].innerHTML = "필수 정보입니다.";
-        error[7].style.display = "block";
+        error[5].innerHTML = "필수 정보입니다.";
+        error[5].style.display = "block";
     } else if(!isPhoneNum.test(mobile.value)) {
-        error[7].innerHTML = "형식에 맞지 않는 번호입니다.";
-        error[7].style.display = "block";
+        error[5].innerHTML = "형식에 맞지 않는 번호입니다.";
+        error[5].style.display = "block";
     } else {
-        error[7].style.display = "none";
+        error[5].style.display = "none";
     }    
 }
 
