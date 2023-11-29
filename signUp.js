@@ -1,30 +1,23 @@
 /*변수 선언*/
 const id = document.querySelector('#id');
-
 const pw1 = document.querySelector('#password1');
 const pwMsg = document.querySelector('#alertTxt');
 const pwImg1 = document.querySelector('#password1_img');
-
 const pw2 = document.querySelector('#password2');
 const pwImg2 = document.querySelector('#password2_img');
 const pwMsgArea = document.querySelector('.int_pass');
-
 const userName = document.querySelector('#name');
-
+const email = document.querySelector('#email');
+const mobile = document.querySelector('#mobile');
+const error = document.querySelectorAll('.error_next_box');
+/*
 const yy = document.querySelector('#yy');
 const mm = document.querySelector('#mm');
 const dd = document.querySelector('#dd');
-
+*/
 /*const gender = document.querySelector('#gender');*/
 
-const email = document.querySelector('#email');
-
-const mobile = document.querySelector('#mobile');
-
-const error = document.querySelectorAll('.error_next_box');
-
 /*이벤트 핸들러 연결*/
-
 if (id) {
     id.addEventListener("focusout", checkId);
 }
@@ -43,16 +36,20 @@ if (pw2) {
     })
 }
 userName.addEventListener("focusout", checkName);
+
+/*
 yy.addEventListener("focusout", isBirthCompleted);
 mm.addEventListener("focusout", isBirthCompleted);
 dd.addEventListener("focusout", isBirthCompleted);
+*/
 /*gender.addEventListener("focusout", function() {
     if(gender.value === "성별") {
         error[5].style.display = "block";
     } else {
         error[5].style.display = "none";
     }
-})*/
+})
+*/
 email.addEventListener("focusout", isEmailCorrect);
 mobile.addEventListener("focusout", checkPhoneNum);
 
@@ -132,7 +129,7 @@ function checkName() {
     }
 }
 
-
+/*
 function isBirthCompleted() {
     const yearPattern = /[0-9]{4}/;
 
@@ -186,7 +183,7 @@ function checkAge() {
         error[4].style.display = "none";
     }
 }
-
+*/
 
 function isEmailCorrect() {
     const emailPattern = /[a-z0-9]{2,}@[a-z0-9-]{2,}\.[a-z0-9]{2,}/;
