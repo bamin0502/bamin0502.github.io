@@ -99,12 +99,12 @@ function hidePasswordInput(inputElement) {
     inputElement.value = Array(inputElement.value.length + 1).join('*');
 }
 function checkName() {
-    const namePattern = /[a-zA-Z가-힣]/;
+    const namePattern = /[가-힣]/;
     if(userName.value === "") {
         error[3].innerHTML = "필수 정보입니다.";
         error[3].style.display = "block";
     } else if(!namePattern.test(userName.value) || userName.value.indexOf(" ") > -1) {
-        error[3].innerHTML = "한글과 영문 대 소문자를 사용하세요. (특수기호, 공백 사용 불가)";
+        error[3].innerHTML = "한글을 사용해주세요. (특수기호, 공백 사용 불가)";
         error[3].style.display = "block";
     } else {
         error[3].style.display = "none";
