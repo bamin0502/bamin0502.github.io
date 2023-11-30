@@ -21,6 +21,7 @@ if (id) {
 if (pw1) {
     pw1.addEventListener("focusout", checkPw);
     pw1.addEventListener("input", checkPw);
+    pw1.addEventListener("input", comparePwOnPw1Change);
 }
 if (pw2) {
     pw2.addEventListener("focusout", comparePw);
@@ -42,6 +43,12 @@ mobile.addEventListener("focusout", checkPhoneNum);
 
 /*콜백 함수*/
 
+// 비밀번호 확인 필드와 비교하는 새로운 함수 추가
+function comparePwOnPw1Change() {
+    if (pw2.value !== "") {  // 비밀번호 확인 필드가 비어있지 않은 경우만 검사
+        comparePw();
+    }
+}
 
 function checkId() {
     const idPattern = /[a-zA-Z0-9]{5,20}/;
@@ -91,25 +98,25 @@ function checkPw() {
 }
 
 function comparePw() {
-     // 수정된 부분: 중복 선언 제거
-     const pw2Value = pw2.value.trim();
-     if (pw2Value === pw1.value && pw2Value !== "") {
-         pwImg2.src = "image/safe.png";
-         error[2].style.display = "none";
-     } else if (pw2Value !== pw1.value && pw2Value !== "") {
-         pwImg2.src = "image/unsafe.png";
-         error[2].innerHTML = "비밀번호가 일치하지 않습니다.";
-         error[2].style.display = "block";
-     } else {
-         // 비밀번호가 비어있을 때 초기화
-         pwImg2.src = "image/icon_check_disable.png";
-         error[2].innerHTML = "";
-         error[2].style.display = "none";
-     }
-     if (pw2Value === "") {
-         error[2].innerHTML = "비밀번호를 먼저 입력해주세요.";
-         error[2].style.display = "block";
-     }
+// 수정된 부분: 중복 선언 제거
+    const pw2Value = pw2.value.trim();
+    if (pw2Value === pw1.value && pw2Value !== "") {
+        pwImg2.src = "image/safe.png";
+        error[2].style.display = "none";
+    } else if (pw2Value !== pw1.value && pw2Value !== "") {
+        pwImg2.src = "image/unsafe.png";
+        error[2].innerHTML = "비밀번호가 일치하지 않습니다.";
+        error[2].style.display = "block";
+    } else {
+        // 비밀번호가 비어있을 때 초기화
+        pwImg2.src = "image/icon_check_disable.png";
+        error[2].innerHTML = "";
+        error[2].style.display = "none";
+    }
+    if (pw2Value === "") {
+        error[2].innerHTML = "비밀번호를 먼저 입력해주세요.";
+        error[2].style.display = "block";
+    }
 }
 function togglePasswordConfirmation(isEnabled){
      // 비밀번호 확인 필드 활성화 여부 체크
@@ -149,7 +156,7 @@ function isEmailCorrect() {
 }
 
 function checkPhoneNum() {
-    const isPhoneNum = /([01]{2})([0]{1})([0-9]{4})([0-9]{4})/;
+    const isPhoneNum = /([01]{2})(0)([0-9]{4})([0-9]{4})/;
 
     if(mobile.value === "tel") {
         error[5].innerHTML = "필수 정보입니다.";
